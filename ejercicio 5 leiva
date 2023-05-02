@@ -1,0 +1,14 @@
+def romano_a_decimal(romano):
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    num_decimal = 0
+    valor_anterior = 0
+    for letter in romano[::-1]:
+        valor_actual = roman[letter]
+        if valor_actual < valor_anterior:
+            num_decimal -= valor_actual
+        else:
+            num_decimal += valor_actual
+        valor_anterior = valor_actual
+    return num_decimal
+
+print(romano_a_decimal('IV'))
